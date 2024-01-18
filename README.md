@@ -9,6 +9,8 @@ pip install -r requirements.txt
 
 ## 代码完整结构
 
+**需要注意**，由于模型文件和数据文件较大，没有上传至github，仅仅通过邮件发送，所以github上没有data和model两个文件夹
+
 ```python
 |-- data # 这个文件夹包含了所有需要使用的数据
     |-- images # 这个文件夹中包含了所有需要使用的图片数据
@@ -38,7 +40,7 @@ pip install -r requirements.txt
 |-- train.py # 用于训练的模型的代码
 ```
 
-需要注意，由于模型文件和数据文件较大，没有上传至github，仅仅通过邮件发送
+
 
 ## 执行代码的流程
 
