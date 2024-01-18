@@ -7,6 +7,21 @@
 pip install -r requirements.txt
 ```
 
+关于pytorch版本：此次实验在AutoDL云服务器上进行，运行指令`pip show torch`得到如下信息
+
+Name: torch
+Version: 1.11.0+cu113
+Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+Home-page: https://pytorch.org/
+Author: PyTorch Team
+Author-email: packages@pytorch.org
+License: BSD-3
+Location: /root/miniconda3/lib/python3.8/site-packages
+Requires: typing-extensions
+Required-by: torchvision
+
+本次实验使用A40卡完成
+
 ## 代码完整结构
 
 **需要注意**，由于模型文件和数据文件较大，没有上传至github，仅仅通过邮件发送，所以github上没有data和model两个文件夹
@@ -36,11 +51,11 @@ pip install -r requirements.txt
 |-- prediction.py  # 用于预测的代码
 |-- requirements.txt # 依赖文件
 |-- script.sh # 便于运行的脚本文件
-|-- test_with_label.txt # 本次实验的提交答案
+|-- test_without_label.txt # 本次实验的提交答案
 |-- train.py # 用于训练的模型的代码
 ```
 
-
+预测文件为test_without_label.txt！！！！
 
 ## 执行代码的流程
 
@@ -50,13 +65,14 @@ pip install -r requirements.txt
 --epoch 用于设置训练轮数
 --warmup 用于设置预热步数 
 --weight_decay 用于设置学习率衰减
---lr 0.000004 用于设置学习率
+--lr 用于设置学习率
 --train 用于设置训练或是预测，可选参数有train, test
+--fusion 用于设置是否为消融实验，可选参数有all, text, image（all代表不做消融，text代表只有文本，image代表只有图片）
 ```
 
 运行方式1：在终端运行
 ```
-python main.py --model cat --epoch 10 --warmup 20 --weight_decay 0.01 --lr 0.000004 --train train
+python main.py --model cat --epoch 10 --warmup 20 --weight_decay 0.01 --lr 0.000004 --train train --fusion all
 ```
 
 运行方式2：在终端运行

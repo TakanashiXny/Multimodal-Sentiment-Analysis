@@ -16,6 +16,7 @@ def parse_arguments():
     parser.add_argument('--weight_decay', type=float, default=1e-2, help='学习率衰减')  # 添加参数
     parser.add_argument('--lr', type=float, default=4e-6, help='学习率')  # 添加参数
     parser.add_argument('--train', type=str, default='train', help='训练或测试')  # 添加参数
+    parser.add_argument('--fusion', type=str, default='all', help='消融实验保留哪一个')  # 添加参数
 
     args = parser.parse_args()  # 解析参数
     return args
@@ -57,29 +58,75 @@ if __name__ == '__main__':
         if args.model == 'cat':
             model = myModel()
             model = model.to(device)
-            train_process(model, 
-                        df_for_train,
-                        back_translation=False,
-                        epoch=epoch, 
-                        batch_size=32, 
-                        learning_rate=learning_rate,
-                        warmup=warmup, 
-                        weight_decay=weight_decay, 
-                        unfusion=0, 
-                        device=device)
+            if args.fusion == 'all':
+                train_process(model, 
+                            df_for_train,
+                            back_translation=False,
+                            epoch=epoch, 
+                            batch_size=32, 
+                            learning_rate=learning_rate,
+                            warmup=warmup, 
+                            weight_decay=weight_decay, 
+                            unfusion=0, 
+                            device=device)
+            elif args.fusion == 'text':
+                train_process(model, 
+                            df_for_train,
+                            back_translation=False,
+                            epoch=epoch, 
+                            batch_size=32, 
+                            learning_rate=learning_rate,
+                            warmup=warmup, 
+                            weight_decay=weight_decay, 
+                            unfusion=1, 
+                            device=device)
+            elif args.fusion == 'image':
+                train_process(model, 
+                            df_for_train,
+                            back_translation=False,
+                            epoch=epoch, 
+                            batch_size=32, 
+                            learning_rate=learning_rate,
+                            warmup=warmup, 
+                            weight_decay=weight_decay, 
+                            unfusion=2, 
+                            device=device)
         elif args.model == 'add':
             model = myModel2()
             model = model.to(device)
-            train_process(model, 
-                        df_for_train,
-                        back_translation=False,
-                        epoch=epoch, 
-                        batch_size=32, 
-                        learning_rate=learning_rate,
-                        warmup=warmup, 
-                        weight_decay=weight_decay, 
-                        unfusion=0, 
-                        device=device)
+            if args.fusion == 'all':
+                train_process(model, 
+                            df_for_train,
+                            back_translation=False,
+                            epoch=epoch, 
+                            batch_size=32, 
+                            learning_rate=learning_rate,
+                            warmup=warmup, 
+                            weight_decay=weight_decay, 
+                            unfusion=0, 
+                            device=device)
+            elif args.fusion == 'text':
+                train_process(model, 
+                            df_for_train,
+                            back_translation=False,
+                            epoch=epoch, 
+                            batch_size=32, 
+                            learning_rate=learning_rate,
+                            warmup=warmup, 
+                            weight_decay=weight_decay, 
+                            unfusion=1, 
+                            device=device)
+            elif args.fusion == 'image':
+                train_process(model, 
+                            df_for_train,
+                            back_translation=False,
+                            epoch=epoch, 
+                            batch_size=32, 
+                            learning_rate=learning_rate,
+                            warmup=warmup, 
+                            weight_decay=weight_decay, 
+                            unfusion=2, 
+                            device=device)
         elif args.model == 'CLMLF':
             model = CLModel()
             model = model.to(device)
