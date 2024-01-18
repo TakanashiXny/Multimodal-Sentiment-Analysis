@@ -4,6 +4,7 @@
 
 运行
 ```
+cd Multimodal-Sentiment-Analysis
 pip install -r requirements.txt
 ```
 
