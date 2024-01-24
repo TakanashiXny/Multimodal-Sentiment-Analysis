@@ -11,14 +11,23 @@ pip install -r requirements.txt
 关于pytorch版本：此次实验在AutoDL云服务器上进行，运行指令`pip show torch`得到如下信息
 
 Name: torch
+
 Version: 1.11.0+cu113
+
 Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+
 Home-page: https://pytorch.org/
+
 Author: PyTorch Team
+
 Author-email: packages@pytorch.org
+
 License: BSD-3
+
 Location: /root/miniconda3/lib/python3.8/site-packages
+
 Requires: typing-extensions
+
 Required-by: torchvision
 
 本次实验使用A40卡完成

@@ -225,7 +225,7 @@ class myModel(nn.Module):
         self.linear  = nn.Linear(49152, 768)
 
         self.text_classifier = nn.Linear(self.text_encoder.config.hidden_size, num_labels)
-        self.image_classifier= nn.Linear(768, num_labels)
+        self.image_classifier= nn.Linear(2048, num_labels)
 
     def forward(self, text, image):
 

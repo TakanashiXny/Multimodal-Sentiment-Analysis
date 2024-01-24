@@ -88,7 +88,7 @@ def train_process(model, df, back_translation, epoch, batch_size, learning_rate,
                 if unfusion == 1:
                     b_imgs = None
                 elif unfusion == 2:
-                    b_inputs == None
+                    b_inputs = None
                 
 
                 b_logits, l_pos_neg, cl_lables, cl_self_loss = model(b_inputs, b_imgs, b_inputs_aug, b_imgs, b_labels, target_labels)
@@ -241,7 +241,7 @@ def train_process(model, df, back_translation, epoch, batch_size, learning_rate,
                 if unfusion == 1:
                     b_imgs = None
                 elif unfusion == 2:
-                    b_inputs == None
+                    b_inputs = None
                     
                 b_logits = model(b_inputs, b_imgs)
                 loss = criterion(b_logits, b_labels)
@@ -290,7 +290,7 @@ def train_process(model, df, back_translation, epoch, batch_size, learning_rate,
                     if unfusion == 1:
                         b_imgs = None
                     elif unfusion == 2:
-                        b_inputs == None
+                        b_inputs = None
 
                     b_logits = model(b_inputs, b_imgs)
                     val_loss = criterion(b_logits, b_labels)
